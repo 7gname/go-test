@@ -1,0 +1,8 @@
+SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_12` WHERE `status` = 1 GROUP BY `fin_user_id`
+UPDATE `t_user_12` SET `balance` = 100 WHERE `fin_user_id` = '4000428602000001'
+SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_13` WHERE `status` = 1 GROUP BY `fin_user_id`
+UPDATE `t_user_13` SET `balance` = 9 WHERE `fin_user_id` = '4000429200000002'
+UPDATE `t_user_13` SET `balance` = 100 WHERE `fin_user_id` = '4000429393000004'
+SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_14` WHERE `status` = 1 GROUP BY `fin_user_id`
+UPDATE `t_user_14` SET `balance` = 100 WHERE `fin_user_id` = '4000429393000003'
+SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_15` WHERE `status` = 1 GROUP BY `fin_user_id`
