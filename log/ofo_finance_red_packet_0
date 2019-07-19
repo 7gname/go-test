@@ -1,5 +1,0 @@
-SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_0` WHERE `status` = 1 GROUP BY `fin_user_id`
-SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_1` WHERE `status` = 1 GROUP BY `fin_user_id`
-SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_2` WHERE `status` = 1 GROUP BY `fin_user_id`
-UPDATE `t_user_2` SET `balance` = 20 WHERE `fin_user_id` = '4000426699000003'
-SELECT `fin_user_id`, SUM(`amount`) AS `balance` FROM `t_cash_flow_3` WHERE `status` = 1 GROUP BY `fin_user_id`

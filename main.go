@@ -1,40 +1,33 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"os/signal"
 	"time"
-	"context"
+	"fmt"
 )
 
-
 func main() {
-	sigChan := make(chan os.Signal, 1)
-	signal.Notify(sigChan, os.Interrupt)
+	hello := make(chan string, 1)
+	name := make(chan string, 0)
 
-	ctx, cancel := context.WithCancel(context.Background())
-	go LaunchProcessor1(ctx)
+	go func() {
+		//time.Sleep(time.Second * 1)
+		name <- "qinming"
+		name <- "wudi"
+	}()
 
-	<-sigChan
-	cancel()
-	time.Sleep(time.Second)
-}
-
-func LaunchProcessor1(ctx context.Context) {
-	fmt.Printf("Start Work\n")
-	i := 0
-	for ;i < 5;{
+	go func() {
+		hello <- "hello "
+	}()
+	//time.Sleep(time.Second * 2)
+	for {
 		select {
-		case <-ctx.Done():
-			fmt.Printf("Kill Early\n")
+		case s := <-hello:
+			fmt.Println(s)
+		case s := <-name:
+			fmt.Println(s)
+		case <-time.After(time.Second * 3):
+			fmt.Println("time out")
 			return
-		default:
-			fmt.Printf("Doing Work\n")
-			time.Sleep(1 * time.Second)
 		}
-		i++
 	}
-
-	fmt.Printf("End Work\n")
 }
