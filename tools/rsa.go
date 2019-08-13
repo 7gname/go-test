@@ -1,14 +1,14 @@
 package tools
 
 import (
+	"bytes"
+	"crypto"
+	"crypto/rand"
+	"crypto/rsa"
+	"crypto/x509"
 	"encoding/base64"
 	"encoding/pem"
-	"crypto/x509"
-	"crypto"
-	"crypto/rsa"
-	"crypto/rand"
 	"errors"
-	"bytes"
 )
 
 var PublicKey = `-----BEGIN PUBLIC KEY-----

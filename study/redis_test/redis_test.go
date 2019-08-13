@@ -1,25 +1,25 @@
 package redis_test
 
 import (
-	"github.com/go-redis/redis"
 	"fmt"
-	"time"
+	"github.com/go-redis/redis"
+	"math/rand"
 	"strconv"
 	"testing"
-	"math/rand"
+	"time"
 )
 
-const KeyPre  = "test:ms:count:"
+const KeyPre = "test:ms:count:"
 
 func initData() <-chan string {
 	ch := make(chan string)
 	cli := redis.NewClient(&redis.Options{
-		Addr:"10.2.18.162:6379",
+		Addr: "10.2.18.162:6379",
 	})
 	go func() {
 		var i int64 = 0
 		for ; i < 3600; i++ {
-			key := fmt.Sprintf("%s%d",KeyPre, time.Now().Unix() + i)
+			key := fmt.Sprintf("%s%d", KeyPre, time.Now().Unix()+i)
 			cli.Set(key, rand.Intn(1000), time.Hour)
 		}
 		ch <- "over"
@@ -27,9 +27,9 @@ func initData() <-chan string {
 	return ch
 }
 
-func TestPipeline(t *testing.T)  {
+func TestPipeline(t *testing.T) {
 	cli := redis.NewClient(&redis.Options{
-		Addr:"10.2.18.162:6379",
+		Addr: "10.2.18.162:6379",
 	})
 	defer cli.Close()
 	t.Logf("redis connected\n")
@@ -42,7 +42,7 @@ func TestPipeline(t *testing.T)  {
 	pipe := cli.Pipeline()
 	var i int64
 	for i = 0; i < 10; i++ {
-		key := fmt.Sprintf("%s%d", KeyPre, time.Now().Unix() + i)
+		key := fmt.Sprintf("%s%d", KeyPre, time.Now().Unix()+i)
 		pipe.Get(key)
 	}
 
@@ -54,7 +54,7 @@ func TestPipeline(t *testing.T)  {
 	for _, cmder := range cmders {
 		cmd := cmder.(*redis.StringCmd)
 		val, err := cmd.Result()
-		fmt.Printf("cmd[%s], val[%s], err[%v]\n",cmder.Args(), val, err)
+		fmt.Printf("cmd[%s], val[%s], err[%v]\n", cmder.Args(), val, err)
 		v, _ := strconv.ParseInt(val, 10, 64)
 		total += v
 	}

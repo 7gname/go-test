@@ -1,10 +1,11 @@
 package study
 
 import (
-	"fmt"
 	"bytes"
+	"fmt"
 	"strings"
 )
+
 //bytes.Compare 函数返回一个整数表示两个[]byte切片按字典序比较的结果（类同C的strcmp）。如果a==b返回0；如果a<b返回-1；否则返回+1。nil参数视为空切片。
 func compare() {
 	var a, b []byte
@@ -28,6 +29,7 @@ func compare() {
 		}
 	}
 }
+
 //bytes.Equal 判断两个切片的内容是否完全相同
 func equal() {
 	var a, b []byte
@@ -52,8 +54,9 @@ func equal() {
 		}
 	}
 }
+
 //bytes.EqualFold 判断两个utf-8编码切片（将unicode大写、小写、标题三种格式字符视为相同）是否相同
-func equalFold()  {
+func equalFold() {
 	var a, b []byte
 	fmt.Println(bytes.EqualFold(a, b))
 
@@ -76,11 +79,13 @@ func equalFold()  {
 		}
 	}
 }
+
 //bytes.Runes 函数返回和s等价的[]rune切片。（将utf-8编码的unicode码值分别写入单个rune）
-func runes()  {
+func runes() {
 	var s = []byte("123")
 	fmt.Println(bytes.Runes(s))
 }
+
 //bytes.HasPrefix 判断s是否有前缀切片prefix
 //bytes.HasSuffix 判断s是否有后缀切片suffix
 func hasPreOrSufFix() {
@@ -90,18 +95,21 @@ func hasPreOrSufFix() {
 	fmt.Println(bytes.HasPrefix(s, prefix))
 	fmt.Println(bytes.HasSuffix(s, sufFix))
 }
+
 //bytes.Contains 判断切片b是否包含子切片subslice
 func contains() {
 	var s = []byte("jidsweadfjadsah")
 	var subFix = []byte("wead")
 	fmt.Println(bytes.Contains(s, subFix))
 }
+
 //bytes.Count 计算s中有多少个不重叠的sep子切片
 func count() {
 	var s = []byte("jidsweadfjadsah")
 	var sep = []byte("s")
 	fmt.Println(bytes.Count(s, sep))
 }
+
 //bytes.Index 子切片sep在s中第一次出现的位置，不存在则返回-1
 //bytes.IndexByte 字符c在s中第一次出现的位置，不存在则返回-1
 //bytes.IndexRune unicode字符r的utf-8编码在s中第一次出现的位置，不存在则返回-1
@@ -124,7 +132,7 @@ func index() {
 	fmt.Println(bytes.IndexFunc(s, func(r rune) bool {
 		if strings.EqualFold(string(r), "w") {
 			return true
-		}else {
+		} else {
 			return false
 		}
 	}))
@@ -134,39 +142,43 @@ func index() {
 	fmt.Println(bytes.LastIndexFunc(s, func(r rune) bool {
 		if strings.EqualFold(string(r), "w") {
 			return true
-		}else {
+		} else {
 			return false
 		}
 	}))
 }
+
 //bytes.ToLower 返回将所有字母都转为对应的小写版本的拷贝
 //bytes.ToUpper 返回将所有字母都转为对应的大写版本的拷贝
-func toLowerOrUpper()  {
+func toLowerOrUpper() {
 	var s = []byte("AbCd")
 	fmt.Println(string(bytes.ToLower(s)))
 	fmt.Println(string(bytes.ToUpper(s)))
 }
+
 //bytes.Repeat 返回count个b串联形成的新的切片
 func repeat() {
-	fmt.Println(string(bytes.Repeat([]byte{97,98}, 5)))
+	fmt.Println(string(bytes.Repeat([]byte{97, 98}, 5)))
 }
+
 //bytes.Replace 返回将s中前n个不重叠old切片序列都替换为new的新的切片拷贝，如果n<0会替换所有old子切片
 func replace() {
-	fmt.Println(string(bytes.Replace([]byte("abcaba"), []byte("abc"), []byte("123"),-1)))
+	fmt.Println(string(bytes.Replace([]byte("abcaba"), []byte("abc"), []byte("123"), -1)))
 }
+
 //bytes.Map 将s的每一个unicode码值r都替换为mapping(r)，返回这些新码值组成的切片拷贝。如果mapping返回一个负值，将会丢弃该码值而不会被替换（返回值中对应位置将没有码值）
 func mMap() {
 	var s = []byte("jidsweadfjadsah")
 	fmt.Println(string(bytes.Map(func(r rune) rune {
 		if r > 127 {
 			return -1
-		}else {
+		} else {
 			return r - 32
 		}
 	}, s)))
 }
 
-func StudyBytes () {
+func StudyBytes() {
 	//compare()
 	//equal()
 	//equalFold()
@@ -180,4 +192,3 @@ func StudyBytes () {
 	//replace()
 	//mMap()
 }
-

@@ -1,9 +1,9 @@
 package interview
 
 import (
+	"fmt"
 	"runtime"
 	"sync"
-	"fmt"
 )
 
 func test() {

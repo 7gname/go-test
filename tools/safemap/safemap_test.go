@@ -1,10 +1,9 @@
 package safemap
 
 import (
-	"testing"
 	"sync"
+	"testing"
 )
-
 
 func Test_set(t *testing.T) {
 	m := make(map[string]int)

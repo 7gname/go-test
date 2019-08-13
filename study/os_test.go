@@ -1,14 +1,14 @@
 package study
 
 import (
-	"os"
-	"fmt"
 	"bufio"
+	"fmt"
+	"os"
 	"strings"
 	"testing"
 )
 
-func TestBaseOpt(t *testing.T)  {
+func TestBaseOpt(t *testing.T) {
 	fmt.Println(os.Getenv("NODE_ENV"))
 
 	fileInfo, err := os.Stat("./main.go")
@@ -32,7 +32,7 @@ func TestBaseOpt(t *testing.T)  {
 	}
 }
 
-func TestStdin(t *testing.T)  {
+func TestStdin(t *testing.T) {
 	stop := make(chan string)
 	fmt.Printf("input \"stop\" to stop server\n")
 	newReader := bufio.NewReader(os.Stdin)
@@ -42,11 +42,11 @@ func TestStdin(t *testing.T)  {
 		if strings.TrimSpace(cmd) == "stop" {
 			println(111)
 			go func() {
-				stop<- "stop"
+				stop <- "stop"
 			}()
 			println(222)
 			break
-		}else{
+		} else {
 			fmt.Println("cmd not defined")
 			continue
 		}

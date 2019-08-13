@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func format()  {
+func format() {
 	// 旗标、宽度、精度、索引
 	fmt.Printf("|%0+- #[1]*.[2]*[3]d|%0+- #[1]*.[2]*[4]d|\n", 8, 4, 32, 64)
 

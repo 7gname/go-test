@@ -1,9 +1,9 @@
 package sync_test
 
 import (
+	"reflect"
 	"sync"
 	"testing"
-	"reflect"
 )
 
 //用 sync.WaitGroup{} 来保证子协程执行完
@@ -28,7 +28,7 @@ func TestSyncMutex(t *testing.T) {
 		wg.Add(1)
 		go func(i int) {
 			lock.Lock()
-			n = 100-i
+			n = 100 - i
 			t.Logf("goroutine %d set n = %d", i, n)
 			lock.Unlock()
 			wg.Done()
@@ -60,11 +60,11 @@ func TestSyncPool(t *testing.T) {
 		Id int
 	}
 	pool := sync.Pool{}
-	for i := 0; i < 10; i ++ {
+	for i := 0; i < 10; i++ {
 		pool.Put(resource{i})
 	}
 	wg := sync.WaitGroup{}
-	for i := 0; i < 10; i ++ {
+	for i := 0; i < 10; i++ {
 		wg.Add(1)
 		go func() {
 			x := pool.Get()

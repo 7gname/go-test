@@ -1,9 +1,9 @@
 package counter
 
 import (
+	"math/rand"
 	"testing"
 	"time"
-	"math/rand"
 )
 
 func TestCounter(t *testing.T) {

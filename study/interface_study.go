@@ -14,16 +14,15 @@ type Cat struct {
 }
 
 func NewCat() (c *Cat) {
-	c = &Cat{Voice:"喵喵喵..."}
+	c = &Cat{Voice: "喵喵喵..."}
 	return
 }
 
-func (c *Cat) Call() () {
+func (c *Cat) Call() {
 	fmt.Println(c.Voice)
 }
 
-
-func (c *Cat) Living()  {
+func (c *Cat) Living() {
 	fmt.Println("你们这些猫奴，听好了：我是神！")
 }
 
@@ -32,11 +31,11 @@ type Dog struct {
 }
 
 func NewDog() (d *Dog) {
-	d = &Dog{Voice:"汪汪汪..."}
+	d = &Dog{Voice: "汪汪汪..."}
 	return
 }
 
-func (d *Dog) Call() () {
+func (d *Dog) Call() {
 	fmt.Println(d.Voice)
 }
 
@@ -45,12 +44,12 @@ type JinMaoDog struct {
 	Skin string
 }
 
-func NewJinMaoDog() (jm *JinMaoDog)  {
-	jm = &JinMaoDog{Dog{Voice:"汪汪汪"}, "金黄色"}
+func NewJinMaoDog() (jm *JinMaoDog) {
+	jm = &JinMaoDog{Dog{Voice: "汪汪汪"}, "金黄色"}
 	return
 }
 
-func (jm *JinMaoDog) Look()  {
+func (jm *JinMaoDog) Look() {
 	fmt.Println(jm.Skin)
 }
 

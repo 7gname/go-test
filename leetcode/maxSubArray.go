@@ -16,7 +16,7 @@ func MaxSubArray(nums []int) int {
 }
 
 func TestMaxSubArray() int {
-	nums := []int{-2,1,-3,4,-1,2,1,-5,4}
+	nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
 
 	return MaxSubArray(nums)
 }

@@ -1,14 +1,14 @@
 package study
 
 import (
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 )
 
 var filepath = "./main.go"
 var path = "."
 
-func ReadFileTest()  {
+func ReadFileTest() {
 	data, err := ioutil.ReadFile(filepath)
 	if err != nil {
 		fmt.Printf("err:[%v]\n", err)
@@ -16,7 +16,7 @@ func ReadFileTest()  {
 	fmt.Printf("file content:[\n%s\n]\n", data)
 }
 
-func ReadPathTest(arg... string)  {
+func ReadPathTest(arg ...string) {
 	if len(arg) > 0 {
 		path = arg[0]
 	}
@@ -32,12 +32,12 @@ func ReadPathTest(arg... string)  {
 		if file.IsDir() {
 			fmt.Printf("+[%s]\n", file.Name())
 			//ReadPathTest(file.Name())
-		}else {
+		} else {
 			fmt.Printf("-[%s]\n", file.Name())
 		}
 	}
 }
 
-func ReadLenTest()  {
+func ReadLenTest() {
 
 }

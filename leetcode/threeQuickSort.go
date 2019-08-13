@@ -26,7 +26,7 @@ package leetcode
 //	return rs
 //}
 
-func ThreeQuickSort(nums []int) ([]int) {
+func ThreeQuickSort(nums []int) []int {
 	l := len(nums)
 	if l <= 1 {
 		return nums
@@ -40,9 +40,9 @@ func ThreeQuickSort(nums []int) ([]int) {
 			nums[i], nums[t+1] = nums[t+1], nums[i]
 			i++
 			t++
-		}else if nums[i] == flag {
+		} else if nums[i] == flag {
 			i++
-		}else{
+		} else {
 			nums[i], nums[n-1] = nums[n-1], nums[i]
 			n--
 		}
@@ -50,7 +50,7 @@ func ThreeQuickSort(nums []int) ([]int) {
 	return nums
 }
 
-func TestThreeQuicSort() ([]int) {
-	nums := []int{2,0,2,1,1,0}
+func TestThreeQuicSort() []int {
+	nums := []int{2, 0, 2, 1, 1, 0}
 	return ThreeQuickSort(nums)
 }

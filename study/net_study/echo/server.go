@@ -1,11 +1,11 @@
 package echo
 
 import (
-	"net"
-	"fmt"
 	"bufio"
-	"strings"
+	"fmt"
 	"io"
+	"net"
+	"strings"
 )
 
 func processTelnetCommand(str string) bool {

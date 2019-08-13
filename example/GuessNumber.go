@@ -1,11 +1,11 @@
 package example
 
 import (
-	"time"
-	"strconv"
-	"os"
-	"math/rand"
 	"fmt"
+	"math/rand"
+	"os"
+	"strconv"
+	"time"
 )
 
 //猜数字小游戏
@@ -17,7 +17,7 @@ func GuessNumber() {
 	var a int
 	var c int
 	for {
-		c ++
+		c++
 		fmt.Scan(&a)
 		if a < r {
 			fmt.Print("小了\n请重新输入：")
@@ -25,7 +25,7 @@ func GuessNumber() {
 			fmt.Print("大了\n请重新输入：")
 		} else {
 			fmt.Println("正确，你太棒了")
-			break;
+			break
 		}
 	}
 	fmt.Println("猜对数字用了", c, "次")

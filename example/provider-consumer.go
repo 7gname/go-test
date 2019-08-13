@@ -1,10 +1,11 @@
 package example
 
 import (
-	"sync"
-	"math/rand"
-	"time"
 	"fmt"
+	"go-test/constant"
+	"math/rand"
+	"sync"
+	"time"
 )
 
 type Product struct {
@@ -17,7 +18,7 @@ type Product struct {
 func Producer(wg *sync.WaitGroup, ch chan Product, idx int, stop *bool) {
 	for !*stop {
 		ch <- Product{
-			Idx:    string(idx) + "-" + time.Now().Format("2006-01-02 15:04:05"),
+			Idx:    string(idx) + "-" + time.Now().Format(constant.TIME_FORMAT),
 			Length: rand.Intn(10),
 			Width:  rand.Intn(10),
 			Height: rand.Intn(10),

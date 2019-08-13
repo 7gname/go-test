@@ -1,9 +1,9 @@
 package tools
 
 import (
+	"bytes"
 	"crypto/aes"
 	"crypto/cipher"
-	"bytes"
 	"encoding/hex"
 )
 

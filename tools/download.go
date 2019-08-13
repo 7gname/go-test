@@ -1,12 +1,12 @@
 package tools
 
 import (
-	"net/http"
-	"io/ioutil"
 	"fmt"
 	"github.com/djimenez/iconv-go"
-	"regexp"
+	"io/ioutil"
+	"net/http"
 	"os"
+	"regexp"
 )
 
 func Download() {
@@ -25,13 +25,13 @@ func Download() {
 		defer resp.Body.Close()
 
 		body, err := ioutil.ReadAll(resp.Body)
-		content := make([]byte,len(body))
+		content := make([]byte, len(body))
 		iconv.Convert(body, content, "gb2312", "utf8")
 		r := regexp.MustCompile(`(?s)<span class="s3">第(.*)`)
 		content = r.Find(content)
 		r = regexp.MustCompile(`<[^>]+>`)
-		content = r.ReplaceAll(content,[]byte(""))
-		file, err := os.OpenFile(fn, os.O_CREATE | os.O_RDWR | os.O_APPEND, 0777)
+		content = r.ReplaceAll(content, []byte(""))
+		file, err := os.OpenFile(fn, os.O_CREATE|os.O_RDWR|os.O_APPEND, 0777)
 		_, err = file.Write(content)
 		file.Close()
 		if err != nil {

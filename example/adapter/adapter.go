@@ -1,8 +1,9 @@
 package adapter
 
 import (
-	"go-test/example/adapter/xiaomi"
 	"go-test/example/adapter/huawei"
+	"go-test/example/adapter/xiaomi"
+	"strings"
 )
 
 type Adaptee interface {
@@ -11,11 +12,11 @@ type Adaptee interface {
 	AfterSpecificRequest()
 }
 
-func NewAdaptee(t string) Adaptee {
-	switch t {
-	case "XiaoMi":
+func NewAdaptee(adt string) Adaptee {
+	switch strings.ToLower(adt) {
+	case "xiaomi":
 		return xiaomi.XiaoMiAdaptee{}
-	case "HuaWei":
+	case "huawei":
 		return huawei.HuaWeiAdaptee{}
 	default:
 		return nil
@@ -32,8 +33,16 @@ func NewAdapter(adaptee Adaptee) Adapter {
 	}
 }
 
-func (a Adapter) Request()  {
+func (a Adapter) Request() {
 	a.BefreSpecificRequest()
 	a.SpecificRequest()
 	a.AfterSpecificRequest()
+}
+
+func (a Adapter) Post() {
+
+}
+
+func (a Adapter) Get() {
+
 }

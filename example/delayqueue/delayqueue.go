@@ -1,8 +1,8 @@
 package delayqueue
 
 import (
-	"time"
 	"container/list"
+	"time"
 )
 
 type Task struct {
@@ -28,7 +28,7 @@ func Server(stop <-chan bool) {
 						t.Callback(t)
 						tasks.Remove(e)
 					}
-				}else {
+				} else {
 					tasks.Remove(e)
 				}
 			}

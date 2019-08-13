@@ -1,12 +1,12 @@
 package zk_test
 
 import (
-	"github.com/samuel/go-zookeeper/zk"
-	"time"
 	"fmt"
-	"strings"
+	"github.com/samuel/go-zookeeper/zk"
 	"path"
+	"strings"
 	"testing"
+	"time"
 )
 
 func final() {

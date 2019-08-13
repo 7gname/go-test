@@ -23,7 +23,7 @@ func LongestSubstring(s string) (ss string) {
 	return
 }
 
-func TestLongestSubstring() (string) {
+func TestLongestSubstring() string {
 	str := "abcabcdabcdeabc"
 	return LongestSubstring(str)
 }

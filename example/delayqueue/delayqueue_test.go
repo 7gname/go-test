@@ -1,12 +1,12 @@
 package delayqueue
 
 import (
-	"testing"
 	"fmt"
-	"time"
 	"math/rand"
 	"os"
 	"os/signal"
+	"testing"
+	"time"
 )
 
 func Test1(t *testing.T) {

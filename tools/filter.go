@@ -2,7 +2,7 @@ package tools
 
 var BloomSlice = make([]byte, 10)
 
-func NewBloomFilter()  {
+func NewBloomFilter() {
 
 }
 

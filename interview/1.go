@@ -15,15 +15,15 @@ func pase_student() {
 	for _, stu := range stus {
 		m[stu.Name] = &stu
 	}
-	for k,v:=range m{
-		println(k,"=>",v.Name)
+	for k, v := range m {
+		println(k, "=>", v.Name)
 	}
 
 	// 正确
-	for i:=0;i<len(stus);i++  {
+	for i := 0; i < len(stus); i++ {
 		m[stus[i].Name] = &stus[i]
 	}
-	for k,v:=range m{
-		println(k,"=>",v.Name)
+	for k, v := range m {
+		println(k, "=>", v.Name)
 	}
 }

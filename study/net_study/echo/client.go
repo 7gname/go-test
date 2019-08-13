@@ -1,13 +1,13 @@
 package echo
 
 import (
-	"net"
-	"fmt"
-	"time"
 	"bufio"
+	"fmt"
+	"net"
+	"time"
 )
 
-func Client()  {
+func Client() {
 	conn, err := net.Dial("tcp", "127.0.0.1:7001")
 	if err != nil {
 		fmt.Printf("err:%s\n", err.Error())

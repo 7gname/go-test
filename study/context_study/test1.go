@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func CtxWithCancelTest () {
+func CtxWithCancelTest() {
 	// gen generates integers in a separate goroutine and
 	// sends them to the returned channel.
 	// The callers of gen need to cancel the context once

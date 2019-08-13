@@ -2,9 +2,10 @@ package study
 
 import (
 	"github.com/pkg/profile"
-	"time"
 	"testing"
+	"time"
 )
+
 func joinSlice() []string {
 	var arr []string
 	for i := 0; i < 100000; i++ {

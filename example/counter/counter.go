@@ -7,7 +7,7 @@ type Counter struct {
 }
 
 func NewCounter() Counter {
-	return Counter{C:0}
+	return Counter{C: 0}
 }
 
 func (c *Counter) Add() uint64 {

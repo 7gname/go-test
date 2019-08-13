@@ -2,32 +2,32 @@ package study
 
 import (
 	"fmt"
-	"strings"
 	"io"
+	"strings"
 )
 
-func toLowerOrUpper () {
+func toLowerOrUpper() {
 	var s = "Abcd"
 	fmt.Println(strings.ToLower(s))
 	fmt.Println(strings.ToUpper(s))
 }
 
-func mMap()  {
+func mMap() {
 	var s = "abc"
 	fmt.Println(strings.Map(func(r rune) rune {
 		fmt.Println(r)
 		return r
-	},s))
+	}, s))
 }
 
-func reader()  {
+func reader() {
 	var s = "hello world!"
 	r := strings.NewReader(s)
 	fmt.Println(r.Size())
 	fmt.Println(r.Len())
 	b := make([]byte, 5)
 	for {
-		n,err := r.Read(b)
+		n, err := r.Read(b)
 		if err != nil && err != io.EOF {
 			panic("err")
 		}
@@ -40,7 +40,7 @@ func reader()  {
 	fmt.Println(s)
 }
 
-func StudyString () {
+func StudyString() {
 	//toLowerOrUpper()
 	//mMap()
 	reader()

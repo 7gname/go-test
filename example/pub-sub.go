@@ -1,13 +1,13 @@
 package example
 
 import (
-	"sync"
 	"errors"
+	"sync"
 )
 
 type Suber struct {
 	Id int
-	Ch chan <- string
+	Ch chan<- string
 }
 
 var pub_sub map[string][]Suber
@@ -17,7 +17,7 @@ func Pub(name string, content string) error {
 	mu.RLock()
 	defer mu.RUnlock()
 	if subers, ok := pub_sub[name]; !ok || len(subers) == 0 {
-		return errors.New("no suber on \""+name+"\"")
+		return errors.New("no suber on \"" + name + "\"")
 	}
 	for _, suber := range pub_sub[name] {
 		suber.Ch <- content
@@ -35,6 +35,6 @@ func Sub(name string, suber Suber) error {
 	return nil
 }
 
-func init()  {
+func init() {
 	pub_sub = make(map[string][]Suber)
 }

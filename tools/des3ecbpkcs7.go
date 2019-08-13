@@ -5,9 +5,9 @@ package tools
 */
 
 import (
-	"encoding/base64"
-	"crypto/des"
 	"bytes"
+	"crypto/des"
+	"encoding/base64"
 	"errors"
 )
 
@@ -23,7 +23,7 @@ func UnPKCS7Padding(data []byte) []byte {
 	return data[:(length - unpadding)]
 }
 
-func DesECBEncrypt(s, k string)(string, error) {
+func DesECBEncrypt(s, k string) (string, error) {
 	key, err := base64.RawStdEncoding.DecodeString(k)
 	if err != nil {
 		return "", err
@@ -49,7 +49,7 @@ func DesECBEncrypt(s, k string)(string, error) {
 	return ss, nil
 }
 
-func DesECBDecrypt(s, k string)(string, error) {
+func DesECBDecrypt(s, k string) (string, error) {
 	data, err := base64.StdEncoding.DecodeString(s)
 	if err != nil {
 		return "", err

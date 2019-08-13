@@ -3,13 +3,13 @@ package tmp
 import "time"
 
 type Server struct {
-	Addr string
+	Addr    string
 	timeout time.Duration
 }
 
 func NewServer(addr string, options ...func(*Server)) (*Server, error) {
 	srv := &Server{
-		Addr:addr,
+		Addr: addr,
 	}
 	for _, option := range options {
 		option(srv)
