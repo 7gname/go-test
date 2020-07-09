@@ -122,7 +122,7 @@ func HandleConnect(conn net.Conn) {
 }
 func StartChatServer() {
 	//创建与客户端的连接地址
-	listener, err := net.Listen("tcp", "127.0.0.1:8001") //利用的是tcp通信
+	listener, err := net.Listen("tcp", "127.0.0.1:10001") //利用的是tcp通信
 	if err != nil {
 		fmt.Println("net.Listen err:", err)
 		return
